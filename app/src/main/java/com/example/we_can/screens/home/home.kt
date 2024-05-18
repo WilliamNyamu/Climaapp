@@ -81,6 +81,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.we_can.navigation.BottomNavigationBar
 
 import kotlinx.coroutines.delay
 
@@ -348,6 +349,9 @@ fun HomeScreen(navController: NavController) {
     }
 
     Scaffold(
+        bottomBar = {
+            BottomNavigationBar(navController = navController)
+        },
         floatingActionButton = {
             FloatingActionButton(onClick = { /* TODO */ }) {
                 Icon(imageVector = Icons.Filled.Create, contentDescription = null)

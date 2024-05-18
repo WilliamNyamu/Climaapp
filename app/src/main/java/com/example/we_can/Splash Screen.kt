@@ -24,6 +24,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.times
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.example.we_can.navigation.ROUTE_REGISTER
 import kotlinx.coroutines.delay
 
 @Composable
@@ -39,7 +40,7 @@ fun SplashScreen(navController: NavController) {
         // Slide out animation
         xOffset.animateTo(1f, animationSpec = tween(durationMillis = 1000))
         // Navigate to next screen
-        navController.navigate("home")
+        navController.navigate(ROUTE_REGISTER)
     }
 
     Box(

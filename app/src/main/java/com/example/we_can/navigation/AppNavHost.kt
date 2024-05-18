@@ -26,7 +26,7 @@ import com.example.we_can.screens.profile.ProfileViewModel
 fun AppNavHost(
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
-    startDestination: String= ROUTE_REGISTER
+    startDestination: String= ROUTE_SPLASH
 ) {
     NavHost(
         navController = navController,
