@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "973293906931",
+    "project_id": "we-can-88749",
+    "storage_bucket": "we-can-88749.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:973293906931:android:715b99ddfaa05eb7804086",
+        "android_client_info": {
+          "package_name": "com.example.we_can"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCyRkOdpFAG-Gh4L7cECw8dw8hQy57BEjc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
