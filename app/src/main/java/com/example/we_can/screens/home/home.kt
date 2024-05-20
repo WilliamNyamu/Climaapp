@@ -82,6 +82,7 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.we_can.navigation.BottomNavigationBar
+import com.example.we_can.navigation.ROUTE_POST
 
 import kotlinx.coroutines.delay
 
@@ -353,7 +354,7 @@ fun HomeScreen(navController: NavController) {
             BottomNavigationBar(navController = navController)
         },
         floatingActionButton = {
-            FloatingActionButton(onClick = { /* TODO */ }) {
+            FloatingActionButton(onClick = { navController.navigate(ROUTE_POST) }) {
                 Icon(imageVector = Icons.Filled.Create, contentDescription = null)
             }
         }
@@ -429,7 +430,7 @@ fun HomeScreen(navController: NavController) {
                 Card(
                     modifier = Modifier.fillMaxWidth(),
                     elevation = 10.dp,
-                    backgroundColor = Color(0xFF7D5260),
+                    backgroundColor = Color(0xFFFFC107),
                     shape = RoundedCornerShape(10.dp)
                 ) {
                     Column(modifier = Modifier.padding(16.dp)) {
@@ -443,15 +444,15 @@ fun HomeScreen(navController: NavController) {
                                 fontWeight = FontWeight.Bold,
                                 modifier = Modifier.weight(1f)
                             )
-                            IconButton(onClick = { /* TODO */ }) {
+                            IconButton(onClick = {navController.navigate(ROUTE_POST)}) {
                                 Icon(imageVector = Icons.Filled.ArrowForward, contentDescription = null)
                             }
                         }
 
                         Spacer(modifier = Modifier.height(16.dp))
-                        ListItem("Mark actions you already done")
-                        ListItem("Refine emission inputs")
-                        ListItem("Add new actions")
+                        ListItem("Mark actions you already done",navController)
+                        ListItem("Refine emission inputs",navController)
+                        ListItem("Add new actions",navController)
                     }
                 }
 
@@ -465,38 +466,18 @@ fun HomeScreen(navController: NavController) {
                 Spacer(modifier = Modifier.height(30.dp))
 
                 // Promotion Card
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .background(
-                            Color.Gray.copy(alpha = 0.2f),
-                            shape = RoundedCornerShape(10.dp)
-                        )
-                        .padding(16.dp)
-                ) {
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        Text(
-                            text = "Become an Earth Hero by planting a tree",
-                            fontFamily = FontFamily.Monospace,
-                            fontWeight = FontWeight.Bold,
-                            modifier = Modifier.weight(1f)
-                        )
-                        Image(
-                            painter = painterResource(id = R.drawable.earthhero),
-                            contentDescription = null,
-                            modifier = Modifier
-                                .size(100.dp)
-                                .clip(RoundedCornerShape(10.dp))
-                        )
-                    }
-                }
+                PromotionCard(
+                    text = "Become an Earth Hero by planting a tree",
+                    imageResId = R.drawable.earthhero,
+                    buttonText = "Learn More"
+                )
             }
         }
     }
 }
 
 @Composable
-fun ListItem(text: String) {
+fun ListItem(text: String,navController: NavController) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -506,10 +487,10 @@ fun ListItem(text: String) {
         Text(
             text = text,
             modifier = Modifier.weight(1f),
-            color = Color.White,
+            color = Color.Black,
             fontFamily = FontFamily.Monospace
         )
-        IconButton(onClick = { /* TODO */ }) {
+        IconButton(onClick = { navController.navigate(ROUTE_POST) }) {
             Icon(imageVector = Icons.Filled.ArrowForward, contentDescription = null)
         }
     }
@@ -521,31 +502,57 @@ fun ImageCard(imageResId: Int, text: String) {
         modifier = Modifier
             .fillMaxWidth()
             .padding(vertical = 8.dp)
-            .clip(RoundedCornerShape(10.dp))
-            .background(Color.Gray.copy(alpha = 0.2f))
+            .background(Color.Gray.copy(alpha = 0.2f), shape = RoundedCornerShape(10.dp))
+            .padding(16.dp)
     ) {
-        Image(
-            painter = painterResource(id = imageResId),
-            contentDescription = null,
-            contentScale = ContentScale.Crop,
-            modifier = Modifier
-                .fillMaxWidth()
-                .aspectRatio(1.5f)
-                .clip(RoundedCornerShape(10.dp))
-        )
-        Text(
-            text = text,
-            color = Color.White,
-            fontWeight = FontWeight.Bold,
-            fontFamily = FontFamily.Monospace,
-            modifier = Modifier
-                .align(Alignment.Center)
-                .padding(16.dp)
-                .background(Color.Black.copy(alpha = 0.7f), shape = RoundedCornerShape(8.dp))
-                .padding(8.dp)
-        )
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            Text(
+                text = text,
+                fontFamily = FontFamily.Monospace,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.weight(1f)
+            )
+            Image(
+                painter = painterResource(id = imageResId),
+                contentDescription = null,
+                modifier = Modifier
+                    .size(100.dp)
+                    .clip(RoundedCornerShape(10.dp))
+            )
+        }
+        Spacer(modifier = Modifier.height(8.dp))
+
     }
 }
+
+@Composable
+fun PromotionCard(text: String, imageResId: Int, buttonText: String) {
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(Color.Gray.copy(alpha = 0.2f), shape = RoundedCornerShape(10.dp))
+            .padding(16.dp)
+    ) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            Text(
+                text = text,
+                fontFamily = FontFamily.Monospace,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.weight(1f)
+            )
+            Image(
+                painter = painterResource(id = imageResId),
+                contentDescription = null,
+                modifier = Modifier
+                    .size(100.dp)
+                    .clip(RoundedCornerShape(10.dp))
+            )
+        }
+        Spacer(modifier = Modifier.height(8.dp))
+
+    }
+}
+
 @Preview
 @Composable
 fun HomeScreenPreview() {

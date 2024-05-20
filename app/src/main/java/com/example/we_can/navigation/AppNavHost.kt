@@ -11,6 +11,8 @@ import androidx.navigation.compose.rememberNavController
 import com.example.we_can.SplashScreen
 import com.example.we_can.authentication.LoginScreen
 import com.example.we_can.authentication.RegisterScreen
+import com.example.we_can.screens.actions.AccordionItem
+import com.example.we_can.screens.actions.Topic
 import com.example.we_can.screens.actions.TopicList
 import com.example.we_can.screens.actions.sampleTopics
 import com.example.we_can.screens.data.DataScreen
@@ -45,6 +47,7 @@ fun AppNavHost(
         composable(ROUTE_POST){CreatePostScreen(viewModel = PostViewModel(),navController)}
         composable(ROUTE_DISPLAY_POST){DisplayPostsScreen(viewModel = PostViewModel(),navController)}
         composable(ROUTE_PROFILE_PAGE){ProfilePage(viewModel = ProfileViewModel(),navController)}
+
 
     }
 }

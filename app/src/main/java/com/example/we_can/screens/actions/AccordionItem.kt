@@ -45,9 +45,11 @@ import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontFamily
+import androidx.navigation.NavController
+import com.example.we_can.navigation.ROUTE_POST
 
 @Composable
-fun AccordionItem(topic: Topic) {
+fun AccordionItem(topic: Topic,navController: NavController) {
     var isExpanded by remember { mutableStateOf(false) }
 
     Surface(
@@ -92,7 +94,9 @@ fun AccordionItem(topic: Topic) {
                         horizontalArrangement = Arrangement.SpaceEvenly
                     ) {
                         topic.icons.forEach { icon ->
-                            IconButton(onClick = { /* Handle icon button click */ }) {
+                            IconButton(onClick = {
+                                navController.navigate(ROUTE_POST)
+                            }) {
                                 Icon(
                                     imageVector = icon,
                                     contentDescription = null,

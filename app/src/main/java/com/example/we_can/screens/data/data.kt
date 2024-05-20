@@ -40,6 +40,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.we_can.R
 import com.example.we_can.navigation.BottomNavigationBar
+import com.example.we_can.navigation.ROUTE_POST
 
 @Composable
 fun DataScreen(navController: NavController) {
@@ -93,7 +94,7 @@ fun DataScreen(navController: NavController) {
                 IconButton(onClick = { /*TODO*/ }) {
                     Icon(imageVector = Icons.Filled.Share, contentDescription = null)
                 }
-                IconButton(onClick = { /*TODO*/ }) {
+                IconButton(onClick = {navController.navigate(ROUTE_POST) }) {
                     Icon(imageVector = Icons.Filled.Add, contentDescription = null)
                 }
             }
@@ -167,10 +168,10 @@ fun DataScreen(navController: NavController) {
                 IconButton(onClick = { /*TODO*/ }) {
                     Icon(imageVector = Icons.Filled.Share, contentDescription = null)
                 }
-                IconButton(onClick = { /*TODO*/ }) {
+                IconButton(onClick = { navController.navigate(ROUTE_POST) }) {
                     Icon(imageVector = Icons.Filled.Add, contentDescription = null)
                 }
-                IconButton(onClick = { /*TODO*/ }) {
+                IconButton(onClick = { navController.navigate(ROUTE_POST) }) {
                     Icon(imageVector = Icons.Default.FavoriteBorder, contentDescription = null)
                 }
             }

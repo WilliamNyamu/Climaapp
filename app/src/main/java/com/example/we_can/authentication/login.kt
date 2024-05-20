@@ -81,7 +81,7 @@ fun LoginScreen(navController: NavController) {
             Box (
                 modifier = Modifier
                     .align(Alignment.CenterHorizontally)
-                    .padding(horizontal = 10.dp)
+                    .padding(horizontal = 4.dp)
             ){
                 Image(
                     painter = painterResource(id = R.drawable.white_app_logo),

@@ -47,14 +47,62 @@ val sampleTopics = listOf(
         )
     ),
     Topic(
-        title = "E-BIKING \uD83D\uDEB4\uD83C\uDFFD",
-        imageRes = R.drawable.e_bike,
-        description = "Unlike gas-powered vehicles,\n" +
-                " e-bikes don't produce tailpipe emissions that trap heat in the atmosphere and contribute to global warming.  While e-bikes do use battery power, electricity generation can be much cleaner than burning fossil fuels, especially if it comes from renewable sources like solar or wind.",
+        title = "Save Water  \uD83D\uDEB0",
+        imageRes = R.drawable.save_water,
+        description =
+                " Water conservation is the practice of using water efficiently to reduce unnecessary water usage. According to Fresh Water Watch, water conservation is important because fresh clean water is a limited resource, as well as a costly one. As a homeowner, you’re probably already well aware of the financial costs of inefficient water use. Conservation of this natural resource is critical for the environment — and our wallets.",
         tips = listOf(
-            "Studies show that e-bikes could potentially replace enough car trips to cut carbon emissions by millions of tons per year.",
+            "Take shorter showers \uD83D\uDEC0\uD83C\uDFFD",
+            "Check faucets and pipes for leaks",
+            "Turn off running water when not in use"
+        ),
+        icons = listOf(
+            Icons.Filled.CheckCircle,
+            Icons.Filled.Add,
+            Icons.Filled.Favorite
+        )
+    ),
+    Topic(
+        title = "Walk \uD83D\uDEB6\uD83C\uDFFF instead of drive \uD83D\uDE99",
+        imageRes = R.drawable.walk,
+        description = "Benefits of walking instead of driving,\n" +
+                " ncreasing the role of walking in your daily commutes could have a major impact on longevity and risk of coronary heart disease, stroke, diabetes, and obesity. If it’s not that far, and you don’t have to carry anything ridiculously heavy on your way, then leave the car at home and hoof it at least part of the way.",
+        tips = listOf(
+            "Walk in short distances to your destination",
             "Encourage people out of cars",
-            "Join a vibrant communities of e-bikers around Africa and the world"
+            "Make it a habit to walk \uD83D\uDE09"
+        ),
+        icons = listOf(
+            Icons.Filled.CheckCircle,
+            Icons.Filled.Add,
+            Icons.Filled.Favorite
+        )
+    ),
+    Topic(
+        title = "Recycle Materials  ♻\uFE0F",
+        imageRes = R.drawable.recycle,
+        description = "Recycle what you can, and save money,\n" +
+                " Recycling is the process of collecting and processing materials that would otherwise be thrown away as trash and turning them into new products. Recycling can benefit your community, the economy, and the environment.",
+        tips = listOf(
+            "Prevent Pollution",
+            "Prevent Waste",
+            "Save a penny"
+        ),
+        icons = listOf(
+            Icons.Filled.CheckCircle,
+            Icons.Filled.Add,
+            Icons.Filled.Favorite
+        )
+    ),
+    Topic(
+        title = "Plant a tree \uD83C\uDF33",
+        imageRes = R.drawable.plant_tree,
+        description = "Participate in tree planting projects!!" +
+                " Forests play a critical part to keep our environment healthy. But our forests need us more than ever – more than 1 million acres of National Forests are in need of reforestation.",
+        tips = listOf(
+            "Tree planting improves wildlife habitat connectivity and supports biodiversity.",
+            "Trees remove harmful pollutants from the air and act as our natural air filter",
+            "Two trees planted will remove 1 ton of CO2 from the atmosphere over the life of those trees."
         ),
         icons = listOf(
             Icons.Filled.CheckCircle,
@@ -62,5 +110,4 @@ val sampleTopics = listOf(
             Icons.Filled.Favorite
         )
     )
-
 )

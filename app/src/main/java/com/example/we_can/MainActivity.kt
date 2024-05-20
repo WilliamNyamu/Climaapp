@@ -38,15 +38,19 @@ class MainActivity : ComponentActivity() {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainScreen(){
-    Scaffold (
-        bottomBar = { BottomNavigationBar(rememberNavController()) },
-        content = { paddingValues ->
-            Box(modifier = Modifier.padding(paddingValues)) {
-
-            }
-        },
-        containerColor = Color.Black
-    )
+//    val navController = rememberNavController()
+//    Scaffold (
+//        bottomBar = { BottomNavigationBar(rememberNavController()) },
+//        content = { paddingValues ->
+//            Box(modifier = Modifier.padding(paddingValues)) {
+//                AppNavHost(navController = navController)
+//
+//            }
+//        },
+//        containerColor = Color.Black
+//    )
+    val navController = rememberNavController()
+    AppNavHost(navController = navController)
 }
 
 @Preview(showBackground = true)

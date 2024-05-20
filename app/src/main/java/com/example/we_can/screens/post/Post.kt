@@ -67,6 +67,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import coil.compose.rememberImagePainter
 import com.example.we_can.R
+import com.example.we_can.navigation.ROUTE_DISPLAY_POST
 
 
 @Composable
@@ -133,6 +134,7 @@ fun CreatePostScreen(viewModel: PostViewModel,navController: NavController) {
         Button(
             onClick = {
                 viewModel.uploadPost(message, imageUri)
+                navController.navigate(ROUTE_DISPLAY_POST)
             },
             enabled = message.isNotEmpty() && imageUri != null,
             modifier = Modifier

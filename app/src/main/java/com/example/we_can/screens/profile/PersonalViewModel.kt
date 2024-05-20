@@ -63,11 +63,13 @@ import com.google.firebase.storage.ktx.storage
 
 
 data class UserProfile(
-    val name: String,
-    val email: String,
-    val phone: String,
+    val name: String? = null,
+    val email: String? = null,
+    val phone: String? = null,
     var profilePictureUrl: String = ""
-)
+) {
+    constructor() : this(null, null, null, "")
+}
 
 
 class ProfileViewModel : ViewModel() {

@@ -43,26 +43,32 @@ fun ProfilePage(viewModel: ProfileViewModel, navController: NavController) {
             .verticalScroll(rememberScrollState()),
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
-        OutlinedTextField(
-            value = name,
-            onValueChange = { name = it },
-            label = { Text("Name") },
-            modifier = Modifier.fillMaxWidth()
-        )
-        OutlinedTextField(
-            value = email,
-            onValueChange = { email = it },
-            label = { Text("Email") },
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
-            modifier = Modifier.fillMaxWidth()
-        )
-        OutlinedTextField(
-            value = phone,
-            onValueChange = { phone = it },
-            label = { Text("Phone") },
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone),
-            modifier = Modifier.fillMaxWidth()
-        )
+        name?.let {
+            OutlinedTextField(
+                value = it,
+                onValueChange = { name = it },
+                label = { Text("Name") },
+                modifier = Modifier.fillMaxWidth()
+            )
+        }
+        email?.let {
+            OutlinedTextField(
+                value = it,
+                onValueChange = { email = it },
+                label = { Text("Email") },
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
+                modifier = Modifier.fillMaxWidth()
+            )
+        }
+        phone?.let {
+            OutlinedTextField(
+                value = it,
+                onValueChange = { phone = it },
+                label = { Text("Phone") },
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone),
+                modifier = Modifier.fillMaxWidth()
+            )
+        }
         Button(onClick = { launcher.launch("image/*") }) {
             Text("Select Profile Picture")
         }
@@ -85,11 +91,19 @@ fun ProfilePage(viewModel: ProfileViewModel, navController: NavController) {
         }
         Button(
             onClick = {
-                viewModel.saveProfile(name, email, phone, imageUri) {
-                    navController.navigateUp() // Navigate back to the previous screen
+                name?.let {
+                    email?.let { it1 ->
+                        phone?.let { it2 ->
+                            viewModel.saveProfile(it, it1, it2, imageUri) {
+                                navController.navigate(NavigationItem.Profile.route) // Navigate back to the previous screen
+                            }
+                        }
+                    }
                 }
             },
-            enabled = name.isNotEmpty() && email.isNotEmpty() && phone.isNotEmpty()
+            enabled =
+            name?.isNotEmpty() ?: false &&
+                    email?.isNotEmpty() ?: false && phone?.isNotEmpty() ?: false
         ) {
             Text("Save Profile")
         }
